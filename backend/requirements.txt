@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+sqlmodel[asyncio]
+sqlalchemy
+asyncpg
+python-dotenv
+psycopg2-binary

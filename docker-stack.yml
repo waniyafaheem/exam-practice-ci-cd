@@ -1,0 +1,25 @@
+services:
+    backend:
+        image: ghcr.io/anusmemon226/ci-cd_assignment/fastapi-todo:latest
+        env_file:
+            - .env
+        ports:
+            - "8000:8000"
+        deploy:
+            replicas: 1
+            update_config:
+                parallelism: 1
+                delay: 5s
+    frontend:
+        image: ghcr.io/anusmemon226/ci-cd_assignment/todo-frontend:latest
+        environment:
+            - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+        ports:
+            - "3000:3000"
+        depends_on:
+            - backend
+        deploy:
+            replicas: 1
+            update_config:
+                parallelism: 1
+                delay: 5s
