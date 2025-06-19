@@ -9,6 +9,10 @@ locals {
 resource "aws_key_pair" "deploy" {
   key_name   = var.key_name
   public_key = file(local.key_path)
+
+  lifecycle {
+    ignore_changes = [public_key]
+  }
 }
 
 resource "aws_security_group" "swarm_sg" {
