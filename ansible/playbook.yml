@@ -66,7 +66,7 @@
 
       - name: Clone or update private todo-app repo via SSH
         git:
-          repo: git@github.com:waniyafaheem/exam-practice-ci-cd-.git
+          repo: git@github.com:waniyafaheem/exam-practice-ci-cd.git
           dest: /opt/todo-app
           version: main
           key_file: /home/ubuntu/.ssh/id_rsa
@@ -148,13 +148,13 @@
 
       - name: Pull latest backend image from GHCR
         community.docker.docker_image:
-            name: ghcr.io/{{ ghcr_user }}/exam-practice-ci-cd-/fastapi-todo:latest
+            name: ghcr.io/{{ ghcr_user }}/exam-practice-ci-cd/fastapi-todo:latest
             tag: latest
             source: pull
 
       - name: Pull latest frontend image from GHCR
         community.docker.docker_image:
-            name: ghcr.io/{{ ghcr_user }}/exam-practice-ci-cd-/todo-frontend:latest
+            name: ghcr.io/{{ ghcr_user }}/exam-practice-ci-cd/todo-frontend:latest
             tag: latest
             source: pull
 
